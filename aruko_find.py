@@ -14,11 +14,8 @@ while cap.isOpened():
     if not ret:
         continue
 
-    # Auto rotate camera
-    frame = cv2.rotate(frame, device)
-
-    # Convert from BGR to RGB
-    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    # # Convert from BGR to RGB
+    frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
     aruco_dict = aruco.Dictionary_get(aruco.DICT_6X6_250)
     parameters = aruco.DetectorParameters_create()
@@ -27,3 +24,4 @@ while cap.isOpened():
 
     # Display the resulting frame
     cv2.imshow('frame', frame)
+    cv2.waitKey(1)
